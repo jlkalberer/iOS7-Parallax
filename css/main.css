@@ -96,10 +96,27 @@ textarea {
 .parallax {
 	width:640px;
 	height:960px;
-	background: url("../img/nature.jpg") no-repeat 50% 50%;
+	/*background: url("../img/nature.jpg") no-repeat 50% 50%;*/
 	position:relative;
+	overflow: hidden;
+	/*-webkit-transform: translateZ(100px);
+	-moz-transform: translateZ(100px);
+	-ms-transform: translateZ(100px);
+	transform: translateZ(100px);*/
 }
 	.parallax .panel {
+		width:1024px;
+		height:1200px;
+		left: -192px;
+		top: -140px;
+		background: url("../img/nature.jpg") no-repeat 50% 50%;
+		position:absolute;
+		-webkit-transform: translateZ(100px);
+		-moz-transform: translateZ(100px);
+		-ms-transform: translateZ(100px);
+		transform: translateZ(100px);
+	}
+	/*.parallax .panel {
 		position: absolute;
 		width:600px;
 		height:600px;
@@ -109,7 +126,7 @@ textarea {
 		position:absolute;
 		background: url("../img/nature-blur.jpg") no-repeat 50% 50%;
 		border-radius: 20px;
-	}
+	}*/
 	.parallax ul {
 		margin:0;
 		padding:0;

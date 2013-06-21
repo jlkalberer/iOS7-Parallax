@@ -1,12 +1,12 @@
 $(function() {
 	var container = $(".parallax");
-	var panel = $(".parallax .panel");
-	var width = 1024,
+	var panel = $(".parallax .panel");//.hide();
+	var width = panel.width(),
 		maxX = width - container.width(),
-		height = 1200,
-		x = width / 4,
-		y = height / 4,
-		dist = 75,
+		height = panel.height(),
+		x = 0,
+		y = 0,
+		dist = 100,
 		top = parseInt(panel.css("top")),
 		left = parseInt(panel.css("left"));
 	gyro.frequency = 25;
@@ -38,23 +38,17 @@ $(function() {
 				yDelta = o.beta;
 				break;
 		}
-		$("#x").html(xDelta);
-		$("#y").html(yDelta);
-		$("#z").html(o.alpha);
-		
+
 		xDelta = xDelta * Math.PI / 180;
 		yDelta = yDelta * Math.PI / 180;
 		
-		if (yDelta > 87) { return; }
-		
-		var xpos = Math.max(-x - xDelta * dist, -maxX);
-		container.css({ 
+		var xpos = -Math.sin(xDelta) * dist;
+		/*container.css({ 
 			"background-position-x" : xpos,
 			"background-position-y" : -y - yDelta * dist
-		});
-		panel.css({
-			"background-position-x" : xpos - top,
-			"background-position-y" : -y - yDelta * dist - top
-		});
+		});*/
+		
+		panel.css("transform","translateZ(-100px) translateX(" + xpos + "px) translateY(" + -Math.sin(yDelta) * dist + "px)");// rotateX("+(-yDelta)+"deg) rotateY("+(-xDelta)+"deg)");
+
     });
 });

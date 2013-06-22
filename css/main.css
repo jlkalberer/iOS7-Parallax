@@ -111,12 +111,13 @@ textarea {
 		top: -140px;
 		background: url("../img/nature.jpg") no-repeat 50% 50%;
 		position:absolute;
+		-webkit-transform-style: preserve-3d;
 		-webkit-transform: translateZ(100px);
 		-moz-transform: translateZ(100px);
 		-ms-transform: translateZ(100px);
 		transform: translateZ(100px);
 	}
-	/*.parallax .panel {
+	/*.parallax .blur-panel {
 		position: absolute;
 		width:600px;
 		height:600px;
@@ -124,9 +125,13 @@ textarea {
 		left:50%;
 		margin-left:-300px;
 		position:absolute;
-		background: url("../img/nature-blur.jpg") no-repeat 50% 50%;
 		border-radius: 20px;
-	}*/
+		overflow:hidden;
+	}
+		.parallax .blur-panel .panel {
+			background: url("../img/nature-blur.jpg") no-repeat 50% 50%;
+		}
+	*/
 	.parallax ul {
 		margin:0;
 		padding:0;

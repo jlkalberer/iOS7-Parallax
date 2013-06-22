@@ -9,7 +9,7 @@ $(function() {
 		dist = 100,
 		top = parseInt(panel.css("top")),
 		left = parseInt(panel.css("left"));
-	gyro.frequency = 25;
+	gyro.frequency = 50;
 	
 	gyro.startTracking(function(o) {
         // o.x, o.y, o.z for accelerometer
@@ -38,17 +38,20 @@ $(function() {
 				yDelta = o.beta;
 				break;
 		}
-
+		$("#x").html(xDelta);
+		$("#y").html(yDelta);
 		xDelta = xDelta * Math.PI / 180;
 		yDelta = yDelta * Math.PI / 180;
 		
-		var xpos = -Math.sin(xDelta) * dist;
+		var xpos = -Math.sin(xDelta) * dist,
+			ypos = -Math.sin(yDelta) * dist;
 		/*container.css({ 
 			"background-position-x" : xpos,
 			"background-position-y" : -y - yDelta * dist
 		});*/
 		
-		panel.css("transform","translateZ(-100px) translateX(" + xpos + "px) translateY(" + -Math.sin(yDelta) * dist + "px)");// rotateX("+(-yDelta)+"deg) rotateY("+(-xDelta)+"deg)");
+		//panel.css("transform","translateZ(-100px) translateX(" + xpos + "px) translateY(" + -Math.sin(yDelta) * dist + "px)");// rotateX("+(-yDelta)+"deg) rotateY("+(-xDelta)+"deg)");
+		panel.css("transform","translate3d("+ xpos + "px," + ypos + "px, 100px)");
 
     });
 });
